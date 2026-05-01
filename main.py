@@ -1,50 +1,8 @@
-# Display opening message
-print(
-    "\nWelcome to...\n"
-    "      ______ ______\n"
-    "    _/      Y      \\_\n"
-    "   // ~Book | ~~ ~  \\\n"
-    "  // ~ ~ ~~ |  Nook~ \\\n"
-    " //________.|.________\\\n"
-    "`----------`-'----------'\n"
-)
-
 # Make book list
-books = []
-
+# Display opening message
 # Enter While loop
-while True:
-    # Print the menu
-    print(
-        "Menu:\n"
-        "    Add book (Add)\n"
-        "    Remove book (Remove)\n"
-        "    Show inventory (Show)\n"
-        "    Show inventory count (Count)\n"
-        "    Quit (Q)\n"
-    )
-    # Ask for user action:
-    action = input("What would you like to do? ").lower()
-
-    if action == "add":
-        book_name = input("What book would you like to add? ")
-        books.append(book_name)
-        print(f'"{book_name}" was added successfully.')
-        continue
-    elif action == "remove":
-        book_name = input("What book would you like to remove? ")
-
-        if not book_name in books:
-            print("That book is not in your list of books.")
-        else:
-            books.remove(book_name)
-
-        continue
-    elif action == "show":
-        for number, book in enumerate(books):
-            print(f"{number}: {book}")
-            continue
-
+# Print the menu
+# Ask for user action:
 ## If add:
 ### Ask user for name of  book
 ### Add book to list of books
@@ -61,3 +19,50 @@ while True:
 ### Print out the length of the book list
 ## If quit:
 ### Break
+
+books = []
+
+print(
+    "\nWelcome to...\n"
+    "      ______ ______\n"
+    "    _/      Y      \\_\n"
+    "   // ~Book | ~~ ~  \\\n"
+    "  // ~ ~ ~~ |  Nook~ \\\n"
+    " //________.|.________\\\n"
+    "`----------`-'----------'"
+)
+
+
+while True:
+    print(
+        "\nMenu:\n"
+        " Add book (Add)\n"
+        " Remove book (Remove)\n"
+        " Show inventory (Show)\n"
+        " Show inventory count (Count)\n"
+        " Quit (Q)\n"
+    )
+    action = input("What would you like to do? ").lower()
+
+    if action == "add":
+        book_name = input("What book would you like to add? ")
+        books.append(book_name)
+        print(f"{book_name} was added successfully.")
+    elif action == "remove":
+        book_name = input("What book would you like to remove? ")
+
+        if not book_name in books:
+            print(f"Error: {book_name} is not in inventory.")
+        else:
+            books.remove(book_name)
+            print(f"Successfully removed {book_name} from inventory.")
+    elif action == "show":
+        for index, book in enumerate(books):
+            print(f"{index + 1}: {book}")
+    elif action == "count":
+        print(f"There are {len(books)} books in your inventory.")
+    elif action == "q":
+        print("Exiting.")
+        break
+    else:
+        print("Error: invalid action.")
