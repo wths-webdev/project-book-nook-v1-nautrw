@@ -26,12 +26,12 @@ while True:
         " Quit (Q)\n"
     )
     # Ask for user action:
-    action = input("What would you like to do? ").lower()
+    action = input("What would you like to do? ").strip().lower()
 
     ## If add:
     if action == "add":
         ### Ask user for name of  book
-        book_name = input("What book would you like to add? ")
+        book_name = input("What book would you like to add? ").strip()
         ### Add book to list of books
         books.append(book_name)
         ### Print success/failure message
